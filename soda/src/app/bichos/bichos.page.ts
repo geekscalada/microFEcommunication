@@ -46,17 +46,25 @@ export class BichosPage implements OnInit, AfterViewChecked {
 
   private _commonLibService: CommonsLibService;
 
+  
+
+  
+
   constructor(
     
-    private change: ChangeDetectorRef, private router: Router    
+    private change: ChangeDetectorRef, private router: Router,
     
-    ) {      
+    
+    ) {  
+      
+     
       
   }
   //End constructor
 
   sendMessageContador(): void {    
-    this._commonLibService.sendMessage("Adding 1 to the counter");    
+
+    this._commonLibService.sendMessage(messageType.UserRegister);    
   }
 
 
@@ -82,6 +90,8 @@ export class BichosPage implements OnInit, AfterViewChecked {
 
 
     this._commonLibService = CommonsLibService.getInstance();
+
+    
 
     this._commonLibService.getMessage().subscribe((data) => {
 
@@ -222,4 +232,12 @@ export class BichosPage implements OnInit, AfterViewChecked {
     }
 
   }
+}
+
+
+export enum messageType {
+  UserLogin = 'user:login',  
+  UserLogout = 'user:logout',
+  UserRegister = 'user:register',
+  UserMessage = 'user:message'
 }

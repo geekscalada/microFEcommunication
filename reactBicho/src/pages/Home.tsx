@@ -3,9 +3,6 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
 
 import { DependencyProvider } from '../contexts/DependencyProvider';
-import { CommonlibrxjsService } from 'commonlibrxjs';
-import { CommonlibrxjsService2 } from 'commonlibrxjsv2';
-
 
 
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, switchMap, timer } from 'rxjs';
 
-enum messageType {
+export enum messageType {
   UserLogin = 'user:login',  
   UserLogout = 'user:logout',
   UserRegister = 'user:register',
@@ -46,7 +46,7 @@ export class CommonsLibService {
       })
     );
   }
-
+  
   
 
 }

@@ -31,7 +31,7 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
   
   
   const enviarMensaje = () => {
-    _commonLibService.sendMessage("Message from: React"); 
+    _commonLibService.sendMessage(messageType.UserLogin); 
   }
   
 
@@ -75,6 +75,13 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
     </div>
   );
 };
+
+export enum messageType {
+  UserLogin = 'user:login',  
+  UserLogout = 'user:logout',
+  UserRegister = 'user:register',
+  UserMessage = 'user:message'
+}
 
 export default ExploreContainer;
 

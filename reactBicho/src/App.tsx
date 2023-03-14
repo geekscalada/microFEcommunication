@@ -24,7 +24,7 @@ import './theme/variables.css';
 import ReactDOM from 'react-dom';
 import React from 'react';
 
-import {CommonlibrxjsService} from 'commonlibrxjs';
+
 
 import { DependencyProvider } from './contexts/DependencyProvider';
 
