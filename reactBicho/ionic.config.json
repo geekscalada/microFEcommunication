@@ -1,0 +1,7 @@
+{
+  "name": "reactBicho",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

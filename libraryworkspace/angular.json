@@ -1,0 +1,43 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "commonlibrxjs": {
+      "projectType": "library",
+      "root": "projects/commonlibrxjs",
+      "sourceRoot": "projects/commonlibrxjs/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/commonlibrxjs/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/commonlibrxjs/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/commonlibrxjs/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/commonlibrxjs/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

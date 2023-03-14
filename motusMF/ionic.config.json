@@ -1,0 +1,7 @@
+{
+  "name": "motusMF",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

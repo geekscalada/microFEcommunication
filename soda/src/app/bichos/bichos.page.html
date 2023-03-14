@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Bichos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-align-items-center" *ngIf="myBichos.length == 0; else bichosList"> 
+<ion-col size="12"> 
+  <div class="ion-text-center"> 
+    You have no Bichos.
+  </div>
+ </ion-col>
+    </ion-row>
+
+    <ng-template #bichosList> 
+        <ion-row > 
+          <ion-col size="4" sizeMd="4" sizeSm="6" sizeXs="12" *ngFor="let bicho of myBichos" > 
+            <ion-card (click)="loadMf2()"  class="bichoCard">
+              <ion-icon size="large" name="bug"> </ion-icon>
+              <ion-card-header>
+                <ion-card-title>{{bicho.localName}}</ion-card-title>
+                <ion-card-subtitle>  {{bicho.connection?'🟢 Online':'🔴 Offline'}}</ion-card-subtitle>
+              </ion-card-header>
+              <ion-icon class="forward-icon" size="large" name="chevron-forward-outline"> </ion-icon>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+    </ng-template>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="4" sizeMd="4" sizeSm="6" sizeXs="12"> 
+        <ion-button (click)="startScanning()" id="open-modal" expand="full" color="warning">
+          <ion-icon slot="start" name="add-outline"></ion-icon>
+          Add New Bicho
+        </ion-button>
+      </ion-col>
+
+      
+        <ion-col size="4" sizeMd="4" sizeSm="6" sizeXs="12"> 
+          <ion-button (click)="sumContador()" expand="full" color="primary">
+            <ion-icon slot="start" name="star"></ion-icon>
+            Add 1 to counter
+          </ion-button>
+        </ion-col>
+        <ion-col size="4" sizeMd="4" sizeSm="6" sizeXs="12">
+
+          <strong>Contador Shell:       </strong>
+          <strong style="color: brown;">{{contador}}</strong>
+        </ion-col>
+        
+      
+      
+
+
+      
+
+
+    </ion-row>
+
+    <ion-row> 
+      <ion-col sizeXs="12" sizeMd="12" sizeLg="6"> 
+        <div class="angular-bicho-container">
+          <app-angular-wrapper [component]="'HomePage'" [options]="optionsMotus" ></app-angular-wrapper>
+         </div>
+      
+      </ion-col>
+
+      <ion-col  sizeXs="12" sizeMd="12" sizeLg="6"> 
+        <div class="react-bicho-container">
+          <app-react-wrapper [options]="optionsReact"></app-react-wrapper>
+         </div>
+      
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+    <!-- Router outlet 1 -->
+
+
+
+
+    <!-- Bluetooth devices Modal -->
+
+    <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="cancel()">Cancel</ion-button>
+            </ion-buttons>
+            <ion-title>Bichos's scanner</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="confirm()" [strong]="true">Select</ion-button>
+            </ion-buttons>
+            <ion-progress-bar *ngIf="scanning" type="indeterminate"></ion-progress-bar>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-item>
+            <ion-label>
+              <ion-icon size="large" name="bluetooth"> </ion-icon>
+            </ion-label>
+         <ion-toggle (ionChange)="toggleBle($event)" [(ngModel)]="ble"> </ion-toggle>
+          </ion-item>
+
+
+      <ion-grid>
+        <ion-row>
+          <ion-col style="text-align: center;">
+            {{scanText}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-list>
+        
+    
+      <ion-item *ngFor="let d of devices;let i = index">
+        <b> {{d.localName}} </b>
+        <ion-button (click)="testConnect(d,i)" *ngIf="!d.connection" slot="end"> connect </ion-button> 
+        <ion-button (click)="disconnect(d,i)" *ngIf="d.connection" slot="end"> disconnect </ion-button> 
+      </ion-item> 
+
+    </ion-list> 
+
+
+          
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+      <!-- End of Bluetooth devices Modal -->
+</ion-content>

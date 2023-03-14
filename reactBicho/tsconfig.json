@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "paths": {            
+      "sharedLib": ["../soda/projects/commons-lib/src/public-api.ts"]      
+    },    
+    "target": "es2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "outDir": "./dist/",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+  },
+  "include": ["src"]
+}

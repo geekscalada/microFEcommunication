@@ -1,0 +1,8 @@
+{
+  "windowsAndroidStudioPath": "C:\\Program Files\\AndroidStudio\\bin\\studio64.exe",
+  "name": "Soda",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

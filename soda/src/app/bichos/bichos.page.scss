@@ -1,0 +1,39 @@
+.bichoCard{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-left: 25px;
+}
+.forward-icon{
+    margin-left:auto;
+    margin-right:10px;
+}
+
+.mfs-container{
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    padding-left: 25px;
+    
+}
+
+.react-bicho-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px;
+    border-style: solid;
+    border-color: #0084ff;
+   
+}
+
+.angular-bicho-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px;
+    border-style: solid;
+    border-color: #ff0000;
+    
+}

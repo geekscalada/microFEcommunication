@@ -1,0 +1,9 @@
+[submodule "soda"]
+	path = soda
+	url = https://github.com/Daggle24/ion-ng-mf-shell.git
+[submodule "motusMF"]
+	path = motusMF
+	url = https://github.com/Daggle24/ion-ng-mf1.git
+[submodule "reactBicho"]
+	path = reactBicho
+	url = https://github.com/Daggle24/ion-react-mf2.git
