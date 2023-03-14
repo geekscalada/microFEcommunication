@@ -74,6 +74,11 @@ module.exports = (options) => {
             // strictVersion: true,
             // requiredVersion: "^auto",
           },
+          "commonlib4": {
+            singleton: true,
+            // strictVersion: true,
+            // requiredVersion: "^auto",
+          },
         },
       }),
 

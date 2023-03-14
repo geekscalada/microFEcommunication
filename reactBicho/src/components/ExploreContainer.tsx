@@ -1,26 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './ExploreContainer.css';
-//import  * as sdf   from 'sharedLib';
 
-//import { Observable } from 'rxjs';
-
-
-//import * as serviceeee from 'sharedLib';
-//import { CommonsLibService } from '../../../soda/projects/commons-lib/src/lib/commons-lib.service';
-
-
-//Hook
-//import { DependencyProvider, useDependency } from '../contexts/DependencyProvider';
 import { useDeps } from '../contexts/DepsContext';
-
-
-
 import { useDependency } from '../contexts/DependencyProvider';
 
+import { CommonsLibService } from 'commonlib4';
 
-
-
-import {CommonsLibService3} from 'commonlib3';
+import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 
 
 
@@ -39,46 +25,51 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
 
   const [contador, setContador] = useState(0);
 
-  const commonInstance2 = CommonsLibService3.getInstance();
+
+  const _commonLibService = CommonsLibService.getInstance();
+  
   
   
   const enviarMensaje = () => {
-    commonInstance2.sendMessage("Hola desde React"); 
+    _commonLibService.sendMessage("Message from: React"); 
   }
   
 
-  useEffect(() => { 
+  useEffect(() => {
 
-    // let commonInstance = CommonsLibService3.getInstance();
-
-    // CommonsLibService3.getInstance();
-    // CommonsLibService3.getInstance();
-    // CommonsLibService3.getInstance();
-
-    
-
-    commonInstance2.getMessage().subscribe((data) => {
-      console.log("mensaje recibido en react ", data);
-    });
-    
+    _commonLibService.getMessage().subscribe((data) => {     
       
 
-    
+      console.log("mensaje recibido en react ", data);
+
+      if (data) {
+        setContador((prevContador) => prevContador + 1);
+      }
+    });
 
 
     return () => {
       
     };
   }, [
-    //myService
+    //contador
   ]);
 
 
   return (
     <div className="container">
-      <button onClick={enviarMensaje}>
-        <strong>Contador:  </strong>
+      <div>
+      <button onClick={enviarMensaje} color="red" >
+        <strong> Add +1  </strong>
       </button>
+      <div>
+      <strong >{contador}</strong>
+      </div>
+      
+      </div>
+      
+      
+      
       <strong>Hola desde React</strong>
       <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
     </div>
@@ -86,3 +77,5 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
 };
 
 export default ExploreContainer;
+
+

@@ -68,6 +68,11 @@ module.exports = {
           // strictVersion: true,
           // requiredVersion: "^auto",
         },
+        "commonlib4": {
+          singleton: true,
+          // strictVersion: true,
+          // requiredVersion: "^auto",
+        },        
         ...sharedMappings.getDescriptors(),
       }),
     }),

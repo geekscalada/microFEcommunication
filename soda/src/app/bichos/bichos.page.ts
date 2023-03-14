@@ -8,14 +8,7 @@ import { WebComponentWrapper } from '@angular-architects/module-federation-tools
 import { WebComponentWrapperOptions } from '@angular-architects/module-federation-tools/lib/web-components/web-component-wrapper';
 import { ReactWrapperComponent } from './components/react-wrapper/react-wrapper.component';
 
-
-import {CommonlibrxjsService} from 'commonlibrxjs';
-import { CommonlibrxjsService2 } from 'commonlibrxjsv2';
-
-
-import {CommonsLibService} from 'sharedLib';
-
-import {CommonsLibService3} from 'commonlib3'
+import { CommonsLibService } from 'commonlib4';
 
 
 
@@ -51,31 +44,19 @@ export class BichosPage implements OnInit, AfterViewChecked {
 
   public contador: number = 0;  
 
-  public instanceCommonsLibService: CommonsLibService3;
+  private _commonLibService: CommonsLibService;
 
   constructor(
     
-    private change: ChangeDetectorRef, private router: Router,
-    private _commonlibrxjsService: CommonlibrxjsService,
-    private _commonlibrxjsService2: CommonsLibService
+    private change: ChangeDetectorRef, private router: Router    
     
-    
-    ) {
-
-      
+    ) {      
       
   }
   //End constructor
 
-  sendMessageContador(): void {
-    //this._commonlibrxjsService.sendMessage("Adding 1 to the counter");
-    this.instanceCommonsLibService.sendMessage("Adding 1 to the counter");
-    console.log("Enviando mensaje desde Soda ")
-  }
-  
-  sumContador(): void {
-    this.contador = this.contador + 1;
-    this.sendMessageContador();    
+  sendMessageContador(): void {    
+    this._commonLibService.sendMessage("Adding 1 to the counter");    
   }
 
 
@@ -100,20 +81,19 @@ export class BichosPage implements OnInit, AfterViewChecked {
     })
 
 
-    this.instanceCommonsLibService = CommonsLibService3.getInstance();
+    this._commonLibService = CommonsLibService.getInstance();
 
-    this.instanceCommonsLibService.getMessage().subscribe((data) => {
+    this._commonLibService.getMessage().subscribe((data) => {
 
-      if (data && data == "Adding 1 to the counter") {
-        this.contador = this.contador + 1;
+      if (data) {
+        this.contador = this.contador + 1;      
       }
 
-      console.log("mensaje en soda", data)
-
+      console.log("Mensaje recibido en soda: ", data)
 
     });
 
-
+    
 
   }
 

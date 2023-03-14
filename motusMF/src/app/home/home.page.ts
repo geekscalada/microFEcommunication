@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
-import { CommonlibrxjsService } from 'commonlibrxjs';
-import { CommonlibrxjsService2 } from 'commonlibrxjsv2';
-
-import {CommonsLibService} from 'sharedLib';
-
-import {CommonsLibService3} from 'commonlib3'
-
+import { CommonsLibService } from 'commonlib4';
 
 @Component({
   selector: 'app-home',
@@ -18,42 +10,39 @@ export class HomePage implements OnInit {
 
   public contador: number = 0;  
 
-  public instanceCommonsLibService: CommonsLibService3 | undefined;
+  private _commonLibService: CommonsLibService | undefined;
 
   constructor(
 
-    private _commonlibrxjsService: CommonlibrxjsService,
-    private _commonlibrxjsService2: CommonlibrxjsService2
-    
-
   ) {
-
 
   }
   //End constructor
-
   
-
+  sendMessageContador(): void {    
+    this._commonLibService?.sendMessage("Adding 1 to the counter");    
+  }
+  
+  
+  
 
   ngOnInit() {    
 
 
-    this.instanceCommonsLibService = CommonsLibService3.getInstance();
+    this._commonLibService = CommonsLibService.getInstance();
     
 
-    this.instanceCommonsLibService.getMessage().subscribe((data) => {
+    this._commonLibService.getMessage().subscribe((data) => {
 
-      if (data && data == "Adding 1 to the counter") {
-        this.contador = this.contador + 1;
+      if (data) {
+        this.contador = this.contador + 1;      
       }
 
-      console.log("mensaje en home.page", data)
-
+      console.log("Mensaje recibido en motus(angular): ", data)
 
     });
 
-
-   
+    
 
 
     

@@ -25,6 +25,11 @@ module.exports = withModuleFederationPlugin({
       // strictVersion: true,
       // requiredVersion: "^auto",
     },
+    "commonlib4": {
+      singleton: true,
+      // strictVersion: true,
+      // requiredVersion: "^auto",
+    },
 
   },
   sharedMappings: ["sharedLib"],

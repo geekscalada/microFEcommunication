@@ -30,6 +30,7 @@
     "@capacitor/status-bar": "4.1.1",
     "@ionic/angular": "^6.1.9",
     "commonlib3": "file:../commonlib3workspace/dist/commonlib3/commonlib3-0.0.1.tgz",
+    "commonlib4": "file:../commonlibworkspacev4/dist/commonlib4/commonlib4-0.0.1.tgz",
     "commonlibrxjs": "file:../libraryworkspace/dist/commonlibrxjs/commonlibrxjs-0.0.1.tgz",
     "commonlibrxjsv2": "file:../libraryworkspace_2/dist/commonlibrxjsv2/commonlibrxjsv2-0.0.1.tgz",
     "ionicons": "^6.0.3",
